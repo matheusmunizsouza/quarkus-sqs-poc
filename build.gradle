@@ -11,15 +11,13 @@ repositories {
 dependencies {
     implementation enforcedPlatform("${quarkusPlatformGroupId}:${quarkusPlatformArtifactId}:${quarkusPlatformVersion}")
     implementation enforcedPlatform("${quarkusPlatformGroupId}:quarkus-amazon-services-bom:${quarkusPlatformVersion}")
-    implementation 'io.quarkus:quarkus-resteasy-jsonb'
-    implementation 'io.quarkus:quarkus-resteasy'
     implementation 'io.quarkiverse.amazonservices:quarkus-amazon-sqs'
     implementation 'software.amazon.awssdk:url-connection-client'
     implementation 'io.quarkus:quarkus-arc'
     testImplementation 'io.quarkus:quarkus-junit5'
-    testImplementation 'io.rest-assured:rest-assured'
     testImplementation 'org.testcontainers:testcontainers'
     testImplementation "org.testcontainers:localstack"
+    testImplementation 'com.amazonaws:aws-java-sdk-s3:1.12.13' // Testcontainers LocalStack still uses AWS SDK version 1 under the covers
 }
 
 group 'com.matheus'
